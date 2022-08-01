@@ -18,5 +18,4 @@ include("uniform_m_bit_within_n_bit.jl")
 include("shifting_and_scaling.jl")
 include("petroni.jl")
 
-
 end
