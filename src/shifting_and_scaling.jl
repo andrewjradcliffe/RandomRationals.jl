@@ -74,12 +74,12 @@
 # rand(cci_8_3)
 
 #### using a type
-using Random
-import Random: rand, default_rng, SamplerTrivial
-import Base: checked_mul, divgcd, unsafe_rational
+# using Random
+# import Random: rand, default_rng, SamplerTrivial
+# import Base: checked_mul, divgcd, unsafe_rational
 
-abstract type RationalInterval{T<:Integer} end
-Base.eltype(::Type{S}) where {S<:RationalInterval{T}} where {T<:Integer} = Rational{T}
+# abstract type RationalInterval{T<:Integer} end
+# Base.eltype(::Type{S}) where {S<:RationalInterval{T}} where {T<:Integer} = Rational{T}
 
 denom(::Type{T}, m::Integer, d::Integer) where {T<:Signed} = checked_mul(T(d), typemax(T) >> (8*sizeof(T)-1 - m)) % T
 denom(::Type{T}, m::Integer, d::Integer) where {T<:Unsigned} = checked_mul(T(d), (one(T) << m - one(T))) % T
