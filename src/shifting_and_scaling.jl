@@ -112,14 +112,14 @@ function acceptreject(r::AbstractRNG, ::Type{T}, y::T, m′::Integer) where {T<:
     end
     x
 end
-function acceptreject(r::AbstractRNG, ::Type{UInt128}, y::T, m′::Integer)
+function acceptreject(r::AbstractRNG, ::Type{UInt128}, y::UInt128, m′::Integer)
     x = rand(r, UInt128) >>> (128 - m′)
     while x > y
         x = rand(r, UInt128) >>> (128 - m′)
     end
     x
 end
-function acceptreject(r::AbstractRNG, ::Type{Int128}, y::T, m′::Integer)
+function acceptreject(r::AbstractRNG, ::Type{Int128}, y::Int128, m′::Integer)
     x = rand(r, UInt128) >>> (128 - m′) % Int128
     while x > y
         x = rand(r, UInt128) >>> (128 - m′) % Int128
